@@ -1,18 +1,12 @@
-from stcklearn.LinearModel import LinearRegression
-from stcklearn.Metrices import mean_squared_error_cus
+from stcklearn.LinearModel import LogisticRegressionCustom
 import numpy as np;
 
-X = np.array([[1], [2], [3], [4], [5]]);
-y = np.array([2, 4, 6, 8, 10]);
-model = LinearRegression();
+X = np.array([1, 2, 3, 4, 5])  # Feature (input)
+y = np.array([0, 0, 0 , 1,1])  # Target (binary outcome)
+
+
+x_topr = np.array([6])
+model = LogisticRegressionCustom();
 model.fit(X,y);
-
-
-print(model.coef_);
-print(model.intercept_)
-
-predict = np.array([1])
-print(model.predict(predict))
-
-accuracy = mean_squared_error_cus(y, predict);
-print(accuracy);
+predicted = model.predict(x_topr)
+print(predicted); 
