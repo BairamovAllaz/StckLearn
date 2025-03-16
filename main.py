@@ -1,4 +1,5 @@
 from stcklearn.DiscriminatAnalysis import LinearDiscriminantAnalysisCustom
+from stcklearn.Metrices import accuracy_score_cus;
 import numpy as np;
 
 
@@ -12,8 +13,12 @@ X = np.array([
 ])
 y = np.array([0, 0, 0, 1, 1, 1])
 
+
 model = LinearDiscriminantAnalysisCustom()
 model.fit(X,y);
 
 predictions = model.predict(X);
 print(predictions);
+
+score = accuracy_score_cus(y,predictions);
+print(score);
