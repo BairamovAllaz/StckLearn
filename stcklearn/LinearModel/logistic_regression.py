@@ -11,7 +11,7 @@ class LogisticRegressionCustom:
 
     def fit(self, X, y, learning_rate=0.001, iterations=5000):
         m = len(y)
-        X = np.array(X);
+        X = np.array(X); 
         for i in range(iterations):
             log_odds = self.beta_0 + self.beta_1 * X
             y_pred = sigmoid(log_odds)

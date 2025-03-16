@@ -1,12 +1,19 @@
-from stcklearn.LinearModel import LogisticRegressionCustom
+from stcklearn.DiscriminatAnalysis import LinearDiscriminantAnalysisCustom
 import numpy as np;
 
-X = np.array([1, 2, 3, 4, 5])  # Feature (input)
-y = np.array([0, 0, 0 , 1,1])  # Target (binary outcome)
 
+X = np.array([
+    [1, 2],
+    [2, 3],
+    [3, 3],
+    [6, 8],
+    [7, 8],
+    [8, 9]
+])
+y = np.array([0, 0, 0, 1, 1, 1])
 
-x_topr = np.array([6])
-model = LogisticRegressionCustom();
+model = LinearDiscriminantAnalysisCustom()
 model.fit(X,y);
-predicted = model.predict(x_topr)
-print(predicted); 
+
+predictions = model.predict(X);
+print(predictions);
