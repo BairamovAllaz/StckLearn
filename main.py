@@ -1,24 +1,14 @@
-from stcklearn.DiscriminatAnalysis import LinearDiscriminantAnalysisCustom
-from stcklearn.Metrices import accuracy_score_cus;
-import numpy as np;
+from stcklearn.LinearModel import RidgeCus;
 
+X = [[1], [2], [3]]
+y = [2, 4, 6]
 
-X = np.array([
-    [1, 2],
-    [2, 3],
-    [3, 3],
-    [6, 8],
-    [7, 8],
-    [8, 9]
-])
-y = np.array([0, 0, 0, 1, 1, 1])
-
-
-model = LinearDiscriminantAnalysisCustom()
+model = RidgeCus(alpha=1.0);
 model.fit(X,y);
+print(model.coef_);
+print(model.intercept_);
 
-predictions = model.predict(X);
-print(predictions);
 
-score = accuracy_score_cus(y,predictions);
-print(score);
+X_test = [[1], [5]]
+predicted = model.predict(X_test);
+print("predicted: ",predicted);
