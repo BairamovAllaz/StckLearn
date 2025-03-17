@@ -1,14 +1,12 @@
+import numpy as np
 from stcklearn.LinearModel import RidgeCus;
+from stcklearn.SVM import SvcCus;
 
-X = [[1], [2], [3]]
-y = [2, 4, 6]
-
-model = RidgeCus(alpha=1.0);
+X = np.array([[1, 2], [2, 3], [3, 3], [2, 1]])  # Feature matrix
+y = np.array([1, 1, -1, -1])  # Labels
+model = SvcCus();
 model.fit(X,y);
-print(model.coef_);
-print(model.intercept_);
 
-
-X_test = [[1], [5]]
-predicted = model.predict(X_test);
-print("predicted: ",predicted);
+new_data = np.array([[2, 2], [1, 1]])
+prediction = model.predict(new_data);
+print("Predicted: " , prediction);
