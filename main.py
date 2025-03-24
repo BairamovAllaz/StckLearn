@@ -1,12 +1,15 @@
 import numpy as np
-from stcklearn.LinearModel import RidgeCus;
-from stcklearn.SVM import SvcCus;
+import pandas as pd;
+from stcklearn.Tree import DecisionTreeClassifier
+from IPython.display import display
+from sklearn.model_selection import train_test_split
 
-X = np.array([[1, 2], [2, 3], [3, 3], [2, 1]])  # Feature matrix
-y = np.array([1, 1, -1, -1])  # Labels
-model = SvcCus();
-model.fit(X,y);
 
-new_data = np.array([[2, 2], [1, 1]])
-prediction = model.predict(new_data);
-print("Predicted: " , prediction);
+col_names = ['sepal_length','sepal_width','petal_lenght','petal_width','type'];
+
+data = pd.read_csv('Iris.csv',skiprows=1,header=None,names=col_names);
+display(data.head(10));
+
+
+model = DecisionTreeClassifier();
+model.fit()
